@@ -1,4 +1,4 @@
-package com.br.domain.entity;
+package com.br.pdvpostocombustivel.domain.entity;
 import java.util.Date;
 
 public class Pessoa {
@@ -15,9 +15,13 @@ public class Pessoa {
 
 
     // construtor
-    public Pessoa(String nomeCompleto){
+    public Pessoa(String nomeCompleto,  String cpfCnpj, Date dataNascimento, Integer numeroCtps) {
         this.nomeCompleto = nomeCompleto;
+        this.cpfCnpj = cpfCnpj;
+        this.dataNascimento = dataNascimento;
+        this.numeroCtps = numeroCtps;
     }
+    public Pessoa() {}
 
     // getters
     public String getNomeCompleto(){
