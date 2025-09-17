@@ -1,0 +1,26 @@
+# Itens de Backlog
+
+1 - Novo Produto: Funcionalidades que ainda não existem no produto;
+2 - Melhorias: Alterações em recursos existentes para aprimorar a experiência de usuário
+3 - Bugs: Defeitos e falhas;
+4 - Divida Técnica: Trabalho necessário para refactorar o código;
+5 - Mudanças de Design de Problemas de UX: Alterações necessárias para melhorar a aparência do produto;
+6 - Aquisição de Conhecimento (Spikes): Investigação ou protótipo para reduzir as incertezas sobre o produto;
+7 - Solicitações de Clientes e Partes: Demandas vindas de usuários e outras pessoas envolvidas no projeto;
+
+# Item de Backlog
+
+1.1 - Requisitos Não Funcionais:
+   1.1.1 - Descritivo Técnico:
+     # Backend deseolvido em Java versão 15;
+     # Maven para gestão de dependência do projeto.
+     # Swing para interface com o usuário.
+     # Versionamento do projeto: Git/GitHub
+
+
+1.2 - Requisitos Funcionais
+    1.2.2 - Cadastro de frentista.
+      #Nome, Cpf, Email, senha, telefone, idade, data_de_nascimento.
+    1.2.2 - Cadastro de produtos.
+    1.2.3 - Gestao de compras.
+    1.2.4 - Gestao de recursos das pessoas.

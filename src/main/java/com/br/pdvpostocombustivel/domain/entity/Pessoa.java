@@ -1,21 +1,36 @@
 package com.br.pdvpostocombustivel.domain.entity;
+import jakarta.persistence.*;
+import jakarta.websocket.OnMessage;
+
 import java.util.Date;
 
+@Entity
+@Table(name = "pessoa")
 public class Pessoa {
 
     // atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(length = 200, nullable = false)
+
     private String nomeCompleto;
 
+    @Column(length = 14, nullable = false)
     private String cpfCnpj;
 
+    @Column(length = 12)
     private Date dataNascimento;
 
+    @Column(length = 8, nullable = false)
     private Integer numeroCtps;
 
 
 
     // construtor
-    public Pessoa(String nomeCompleto,  String cpfCnpj, Date dataNascimento, Integer numeroCtps) {
+    public Pessoa(String nomeCompleto,  String cpfCnpj, Date dataNascimento, Integer numeroCtps, Long id) {
+        this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.cpfCnpj = cpfCnpj;
         this.dataNascimento = dataNascimento;
