@@ -1,7 +1,6 @@
-package com.br.pdvpostocombustivel;
+package com.br.pdvpostocombustivel.util;
 
 import com.br.pdvpostocombustivel.domain.entity.Pessoa;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
