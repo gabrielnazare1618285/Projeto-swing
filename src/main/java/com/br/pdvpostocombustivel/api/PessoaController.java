@@ -1,5 +1,6 @@
 package com.br.pdvpostocombustivel.api;
 
+
 import com.br.pdvpostocombustivel.api.pessoa.dto.PessoaRequest;
 import com.br.pdvpostocombustivel.api.pessoa.dto.PessoaResponse;
 import org.springframework.data.domain.Page;
@@ -37,18 +38,21 @@ public class PessoaController {
     public Page<PessoaResponse> list(@RequestParam(defaultValue = "0") int page,
                                      @RequestParam(defaultValue = "10") int size,
                                      @RequestParam(defaultValue = "id") String sortBy,
-                                     @RequestParam(defaultValue =  "ASC") Sort.Direction dir) {
+                                     @RequestParam(defaultValue = "ASC") Sort.Direction dir) {
         return service.list(page, size, sortBy, dir);
+    }
 
-public class PessoaController {
-
-    @PostMapping("/{id}")
-    public PessoaResponse update(@PathVariable Long id, @RequestBody PessoaRequest req)
-        }
+    @PutMapping("/{id}")
+    public PessoaResponse update(@PathVariable Long id, @RequestBody PessoaRequest req) {
         return service.update(id, req);
-        }
+    }
 
     @PatchMapping("/{id}")
+    public PessoaResponse patch(@PathVariable Long id, @RequestBody PessoaRequest req) {
+        return service.patch(id, req);
+    }
+
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         service.delete(id);
