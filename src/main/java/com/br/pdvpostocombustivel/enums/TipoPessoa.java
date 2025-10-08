@@ -1,9 +1,10 @@
 package com.br.pdvpostocombustivel.enums;
 
-public enum  TipoPessoa {
 
-    FISICA("Pessoa Fisica"),
-    JURIDICA("Pessoa Juridica");
+public enum TipoPessoa {
+
+    FISICA("Pessoa Física"),
+    JURIDICA("Pessoa Jurídica");
 
     private final String descricao;
 
@@ -14,4 +15,5 @@ public enum  TipoPessoa {
     public String getDescricao() {
         return descricao;
     }
+
 }

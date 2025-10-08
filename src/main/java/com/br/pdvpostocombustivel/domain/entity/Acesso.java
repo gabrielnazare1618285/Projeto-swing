@@ -1,6 +1,14 @@
-package com.br.domain.entity;
+package com.br.pdvpostocombustivel.domain.entity;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 public class Acesso {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String usuario;
     private String senha;
@@ -20,4 +28,7 @@ public class Acesso {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    protected Acesso() {}
+
 }

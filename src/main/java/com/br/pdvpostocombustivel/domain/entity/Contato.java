@@ -1,6 +1,14 @@
-package com.br.domain.entity;
+package com.br.pdvpostocombustivel.domain.entity;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 public class Contato {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     //atributos
     private String telefone;
@@ -37,5 +45,7 @@ public class Contato {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
+    protected Contato() {}
 }
 

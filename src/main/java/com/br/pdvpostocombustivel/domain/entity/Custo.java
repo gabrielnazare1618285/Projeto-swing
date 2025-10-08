@@ -1,7 +1,15 @@
-package com.br.domain.entity;
+package com.br.pdvpostocombustivel.domain.entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.util.Date;
 
 public class Custo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private Double imposto;
     private Double frete;
@@ -69,5 +77,7 @@ public class Custo {
     }
 
     private Date dataProcessamento;
+
+    protected Custo() {}
 
 }

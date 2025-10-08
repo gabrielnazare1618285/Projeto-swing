@@ -1,7 +1,15 @@
-package com.br.domain.entity;
+package com.br.pdvpostocombustivel.domain.entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.math.BigDecimal;
 
 public class Preco {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private BigDecimal valor;
     private String dataAlteracao;
@@ -34,4 +42,6 @@ public class Preco {
     public void setValorAlteracao(String valorAlteracao) {
         this.valorAlteracao = valorAlteracao;
     }
+
+    protected Preco() {}
 }
