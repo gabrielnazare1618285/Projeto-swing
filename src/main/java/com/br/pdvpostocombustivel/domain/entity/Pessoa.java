@@ -3,7 +3,6 @@ package com.br.pdvpostocombustivel.domain.entity;
 import com.br.pdvpostocombustivel.enums.TipoPessoa;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -36,13 +35,11 @@ public class Pessoa {
     private Long numeroCtps;
 
     // Se quiser opcional, troque para nullable = true e remova @NotNull
-    @NotNull
-    @Column(name = "data_nascimento", nullable = false)
+    @Column(name = "data_nascimento", nullable = true)
     private LocalDate dataNascimento;
 
-    @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_pessoa", nullable = false, length = 15)
+    @Column(name = "tipo_pessoa", nullable = true, length = 15)
     private TipoPessoa tipoPessoa;
 
     /** Construtor JPA */
