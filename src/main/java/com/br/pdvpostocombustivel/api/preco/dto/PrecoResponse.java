@@ -1,4 +1,9 @@
 package com.br.pdvpostocombustivel.api.preco.dto;
 
-public class PrecoResponse {
-}
+import java.time.LocalDate;
+import java.math.BigDecimal;
+public record PrecoResponse (
+        BigDecimal valor,
+        String dataAlteracao,
+        String valorAlteracao
+){}
