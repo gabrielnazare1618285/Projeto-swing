@@ -1,4 +1,10 @@
 package com.br.pdvpostocombustivel.api.custo.dto;
 
-public class CustoResponse {
-}
+public record CustoResponse(
+        Double imposto,
+        Double frete,
+        Double seguro,
+        Double custoVariavel,
+        Double custoFixo,
+        Double margemLucro)
+{}
