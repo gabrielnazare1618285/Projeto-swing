@@ -1,15 +1,14 @@
 package com.br.pdvpostocombustivel.api.preco.dto;
 
-import com.br.pdvpostocombustivel.enums.TipoPreco;
-import org.springframework.format.annotation.DateTimeFormat;
-
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public record PrecoRequest(
+        @NotNull(message = "O valor não pode ser nulo.")
         BigDecimal valor,
-        String dataAlteracao,
-        String valorAlteracao,
-        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-        TipoPreco tipoPreco)
-{}
+
+        LocalDate dataAlteracao,
+
+        BigDecimal valorAlteracao
+) {}

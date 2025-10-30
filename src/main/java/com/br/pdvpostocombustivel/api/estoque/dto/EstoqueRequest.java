@@ -1,17 +1,18 @@
 package com.br.pdvpostocombustivel.api.estoque.dto;
 
-import com.br.pdvpostocombustivel.enums.TipoEstoque;
-import org.springframework.format.annotation.DateTimeFormat;
-
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
-public record EstoqueRequest (
+public record EstoqueRequest(
+        @NotNull(message = "A quantidade não pode ser nula.")
         BigDecimal quantidade,
-        String LocalTanque,
-        String LocalEndereco,
-        String Fabricacao,
-        String dataValidade,
-        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-        TipoEstoque tipoEstoque
-)
-{}
+
+        String localTanque,
+
+        String localEndereco,
+
+        LocalDate dataFabricacao,
+
+        LocalDate dataValidade
+) {}

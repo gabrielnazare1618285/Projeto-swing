@@ -1,15 +1,14 @@
 package com.br.pdvpostocombustivel.api.custo.dto;
 
-import com.br.pdvpostocombustivel.enums.TipoCusto;
-import org.springframework.format.annotation.DateTimeFormat;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
-public record CustoRequest (
-        Double imposto,
-        Double frete,
-        Double seguro,
-        Double custoVariavel,
-        Double custoFixo,
-        Double margemLucro,
-        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-        TipoCusto tipoCusto)
-{}
+public record CustoRequest(
+        BigDecimal imposto,
+        BigDecimal frete,
+        BigDecimal seguro,
+        BigDecimal custoVariavel,
+        BigDecimal custoFixo,
+        BigDecimal margemLucro,
+        LocalDate dataProcessamento
+) {}

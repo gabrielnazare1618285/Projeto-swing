@@ -3,17 +3,19 @@ package com.br.pdvpostocombustivel.domain.repository;
 import com.br.pdvpostocombustivel.domain.entity.Estoque;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Optional;
 
-public interface EstoqueRepository extends JpaRepository<Estoque, Integer> {
-    Optional<Estoque> findByQuantidade(Double quantidade);
-    Optional<Estoque> findByLocalTanque(String LocalTanque);
-    Optional<Estoque> findByLocalEndereco(String LocalEndereco);
-    Optional<Estoque> findByFabricacao(String Fabricacao);
-    Optional<Estoque> findByDatavalidade(String datavalidade);
-    boolean existsByQuantidade(Double quantidade);
-    boolean existsByLocalTanque(String LocalTanque);
-    boolean existsByLocalEndereco(String LocalEndereco);
-    boolean existsByFabricacao(String Fabricacao);
-    boolean existsByDatavalidade(String datavalidade);
+public interface EstoqueRepository extends JpaRepository<Estoque, Long> {
+    Optional<Estoque> findByQuantidade(BigDecimal quantidade);
+    Optional<Estoque> findByLocalTanque(String localTanque);
+    Optional<Estoque> findByLocalEndereco(String localEndereco);
+    Optional<Estoque> findByDataFabricacao(LocalDate dataFabricacao);
+    Optional<Estoque> findByDataValidade(LocalDate dataValidade);
+    boolean existsByQuantidade(BigDecimal quantidade);
+    boolean existsByLocalTanque(String localTanque);
+    boolean existsByLocalEndereco(String localEndereco);
+    boolean existsByDataFabricacao(LocalDate dataFabricacao);
+    boolean existsByDataValidade(LocalDate dataValidade);
 }

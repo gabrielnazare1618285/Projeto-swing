@@ -1,13 +1,15 @@
 package com.br.pdvpostocombustivel.api.produto.dto;
 
-import com.br.pdvpostocombustivel.enums.TipoProduto;
-import org.springframework.format.annotation.DateTimeFormat;
+import jakarta.validation.constraints.NotBlank;
 
-public record ProdutoRequest (
+public record ProdutoRequest(
+        @NotBlank(message = "O nome não pode estar em branco.")
         String nome,
+
+        @NotBlank(message = "A referência não pode estar em branco.")
         String referencia,
+
         String marca,
-        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-        TipoProduto tipoProduto
-)
-{}
+
+        String fornecedor
+) {}

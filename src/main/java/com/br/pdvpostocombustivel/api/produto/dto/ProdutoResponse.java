@@ -1,11 +1,9 @@
 package com.br.pdvpostocombustivel.api.produto.dto;
 
-import com.br.pdvpostocombustivel.enums.TipoProduto;
-import org.springframework.format.annotation.DateTimeFormat;
-
-public record ProdutoResponse (
+public record ProdutoResponse(
+        Long id,
         String nome,
         String referencia,
-        String marca
-)
-{}
+        String marca,
+        String fornecedor
+) {}

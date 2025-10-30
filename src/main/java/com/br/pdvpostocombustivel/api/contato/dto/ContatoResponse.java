@@ -1,4 +1,8 @@
 package com.br.pdvpostocombustivel.api.contato.dto;
 
-public record ContatoResponse(String email, String telefone, String endereco) {}
-
+public record ContatoResponse(
+        Long id,
+        String telefone,
+        String email,
+        String endereco
+) {}

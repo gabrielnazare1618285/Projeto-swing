@@ -7,11 +7,11 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Optional;
 
-public interface PrecoRepository extends JpaRepository<Preco, Integer> {
-    Optional<Preco> findbyValor(BigDecimal valor);
-    Optional<Preco> findbyDataAlteracao(String dataAlteracao);
-    Optional<Preco> findbyValorAlteracao(String valorAlteracao);
-    boolean existsByDataAlteracao(String dataAlteracao);
-    boolean existsByValorAlteracao(String valorAlteracao);
+public interface PrecoRepository extends JpaRepository<Preco, Long> {
+    Optional<Preco> findByValor(BigDecimal valor);
+    Optional<Preco> findByDataAlteracao(LocalDate dataAlteracao);
+    Optional<Preco> findByValorAlteracao(BigDecimal valorAlteracao);
+    boolean existsByDataAlteracao(LocalDate dataAlteracao);
+    boolean existsByValorAlteracao(BigDecimal valorAlteracao);
     boolean existsByValor(BigDecimal valor);
 }

@@ -1,9 +1,14 @@
 package com.br.pdvpostocombustivel.api.contato.dto;
 
-import com.br.pdvpostocombustivel.enums.TipoAcesso;
-import org.springframework.format.annotation.DateTimeFormat;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
-public record ContatoRequest(String telefone, String email, String endereco, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-TipoAcesso tipoAcesso) {
+public record ContatoRequest(
+        @NotBlank(message = "O telefone não pode estar em branco.")
+        String telefone,
 
-}
+        @Email(message = "O email deve ser válido.")
+        String email,
+
+        String endereco
+) {}
