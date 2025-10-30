@@ -1,25 +1,26 @@
 package com.br.pdvpostocombustivel.domain.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "contatos")
 public class Contato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //atributos
+    @Column(name = "telefone", length = 20)
     private String telefone;
+
+    @Column(name = "email", length = 100)
     private String email;
+
+    @Column(name = "endereco", length = 255)
     private String endereco;
 
-    // Controller
-    public Contato(String telefone, String email, String endereco) {
-        this.telefone = telefone;
-        this.email = email;
-        this.endereco = endereco;
+    public Long getId() {
+        return id;
     }
 
     public String getTelefone() {
@@ -46,6 +47,15 @@ public class Contato {
         this.endereco = endereco;
     }
 
+    /**
+     * @deprecated Construtor para uso exclusivo do JPA.
+     */
+    @Deprecated
     protected Contato() {}
-}
 
+    public Contato(String telefone, String email, String endereco) {
+        this.telefone = telefone;
+        this.email = email;
+        this.endereco = endereco;
+    }
+}

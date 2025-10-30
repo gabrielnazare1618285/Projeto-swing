@@ -1,22 +1,28 @@
 package com.br.pdvpostocombustivel.domain.entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
+import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
+@Entity
+@Table(name = "precos")
 public class Preco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "valor", nullable = false, precision = 10, scale = 2)
     private BigDecimal valor;
-    private String dataAlteracao;
-    private String valorAlteracao;
 
-    public Preco(BigDecimal valor, String dataAlteracao, String valorAlteracao) {
+    @Column(name = "data_alteracao")
+    private LocalDate dataAlteracao;
 
+    @Column(name = "valor_alteracao", precision = 10, scale = 2)
+    private BigDecimal valorAlteracao;
+
+    public Long getId() {
+        return id;
     }
 
     public BigDecimal getValor() {
@@ -27,21 +33,31 @@ public class Preco {
         this.valor = valor;
     }
 
-    public String getDataAlteracao() {
+    public LocalDate getDataAlteracao() {
         return dataAlteracao;
     }
 
-    public void setDataAlteracao(String dataAlteracao) {
+    public void setDataAlteracao(LocalDate dataAlteracao) {
         this.dataAlteracao = dataAlteracao;
     }
 
-    public String getValorAlteracao() {
+    public BigDecimal getValorAlteracao() {
         return valorAlteracao;
     }
 
-    public void setValorAlteracao(String valorAlteracao) {
+    public void setValorAlteracao(BigDecimal valorAlteracao) {
         this.valorAlteracao = valorAlteracao;
     }
 
+    /**
+     * @deprecated Construtor para uso exclusivo do JPA.
+     */
+    @Deprecated
     protected Preco() {}
+
+    public Preco(BigDecimal valor, LocalDate dataAlteracao, BigDecimal valorAlteracao) {
+        this.valor = valor;
+        this.dataAlteracao = dataAlteracao;
+        this.valorAlteracao = valorAlteracao;
+    }
 }

@@ -1,83 +1,111 @@
 package com.br.pdvpostocombustivel.domain.entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
-import java.util.Date;
+import jakarta.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
+@Entity
+@Table(name = "custos")
 public class Custo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double imposto;
-    private Double frete;
-    private Double seguro;
-    private Double custoVariavel;
-    private Double custoFixo;
-    private Double margemLucro;
+    @Column(name = "imposto", precision = 10, scale = 2)
+    private BigDecimal imposto;
 
-    public Custo(Double imposto, Double frete, Double seguro, Double custoVariavel, Double custoFixo, Double margemLucro) {}
+    @Column(name = "frete", precision = 10, scale = 2)
+    private BigDecimal frete;
 
-    public Double getImposto() {
+    @Column(name = "seguro", precision = 10, scale = 2)
+    private BigDecimal seguro;
+
+    @Column(name = "custo_variavel", precision = 10, scale = 2)
+    private BigDecimal custoVariavel;
+
+    @Column(name = "custo_fixo", precision = 10, scale = 2)
+    private BigDecimal custoFixo;
+
+    @Column(name = "margem_lucro", precision = 10, scale = 2)
+    private BigDecimal margemLucro;
+
+    @Column(name = "data_processamento")
+    private LocalDate dataProcessamento;
+
+    public Long getId() {
+        return id;
+    }
+
+    public BigDecimal getImposto() {
         return imposto;
     }
 
-    public void setImposto(Double imposto) {
+    public void setImposto(BigDecimal imposto) {
         this.imposto = imposto;
     }
 
-    public Double getFrete() {
+    public BigDecimal getFrete() {
         return frete;
     }
 
-    public void setFrete(Double frete) {
+    public void setFrete(BigDecimal frete) {
         this.frete = frete;
     }
 
-    public Double getSeguro() {
+    public BigDecimal getSeguro() {
         return seguro;
     }
 
-    public void setSeguro(Double seguro) {
+    public void setSeguro(BigDecimal seguro) {
         this.seguro = seguro;
     }
 
-    public Double getCustoVariavel() {
+    public BigDecimal getCustoVariavel() {
         return custoVariavel;
     }
 
-    public void setCustoVariavel(Double custoVariavel) {
+    public void setCustoVariavel(BigDecimal custoVariavel) {
         this.custoVariavel = custoVariavel;
     }
 
-    public Double getCustoFixo() {
+    public BigDecimal getCustoFixo() {
         return custoFixo;
     }
 
-    public void setCustoFixo(Double custoFixo) {
+    public void setCustoFixo(BigDecimal custoFixo) {
         this.custoFixo = custoFixo;
     }
 
-    public Double getMargemLucro() {
+    public BigDecimal getMargemLucro() {
         return margemLucro;
     }
 
-    public void setMargemLucro(Double margemLucro) {
+    public void setMargemLucro(BigDecimal margemLucro) {
         this.margemLucro = margemLucro;
     }
 
-    public Date getDataProcessamento() {
+    public LocalDate getDataProcessamento() {
         return dataProcessamento;
     }
 
-    public void setDataProcessamento(Date dataProcessamento) {
+    public void setDataProcessamento(LocalDate dataProcessamento) {
         this.dataProcessamento = dataProcessamento;
     }
 
-    private Date dataProcessamento;
-
+    /**
+     * @deprecated Construtor para uso exclusivo do JPA.
+     */
+    @Deprecated
     protected Custo() {}
 
+    public Custo(BigDecimal imposto, BigDecimal frete, BigDecimal seguro, BigDecimal custoVariavel, BigDecimal custoFixo, BigDecimal margemLucro, LocalDate dataProcessamento) {
+        this.imposto = imposto;
+        this.frete = frete;
+        this.seguro = seguro;
+        this.custoVariavel = custoVariavel;
+        this.custoFixo = custoFixo;
+        this.margemLucro = margemLucro;
+        this.dataProcessamento = dataProcessamento;
+    }
 }
